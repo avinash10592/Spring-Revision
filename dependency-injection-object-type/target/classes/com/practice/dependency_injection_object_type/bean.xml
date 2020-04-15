@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="mathCheatObjectValue" class="com.practice.dependency_injection_object_type.MathCheat"></bean>
+        
+        <bean id="stu" class="com.practice.dependency_injection_object_type.Student">
+        <property name="id" value="1001"/>
+        <property name="mathCheat" ref="mathCheatObjectValue"/>
+        </bean>
+        
+        <bean id="anotherStudent" class="com.practice.dependency_injection_object_type.AnotherStudent" >
+        <property name="cheat" ref="mathCheatObjectValue"/>
+        </bean>
+        
+</beans>
