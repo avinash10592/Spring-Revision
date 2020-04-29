@@ -4,7 +4,7 @@ public class Product {
 
 	String pid;
 	String pname;
-	int price;
+	double price;
 	double tax;
 	double finalprice;
 
@@ -24,11 +24,11 @@ public class Product {
 		this.pname = pname;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

@@ -9,10 +9,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages ="com.practice.controller")
+@ComponentScan(basePackages ="com.practice")
 public class AppConfig {
 
-	// setting up ViewResolver
+	// setting up ViewResolver  
 
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
@@ -23,11 +23,12 @@ public class AppConfig {
 		return viewResolver;
 
 	}
+	
 	@Bean
-	DriverManagerDataSource getDataSource() {
+	DriverManagerDataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/My Database");
+		ds.setUrl("jdbc:mysql://localhost:3306/database1");
 		ds.setUsername("root");
 		ds.setPassword("Lakshmi@2");
 

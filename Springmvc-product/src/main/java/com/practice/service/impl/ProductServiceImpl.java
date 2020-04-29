@@ -8,23 +8,26 @@ import com.practice.dao.ProductDao;
 import com.practice.service.ProductService;
 
 @Service
-public abstract class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductDao productDAO;
 
+	@Override
 	public void addProduct(Product p) {
-		 calculatetaxandFinalPrice(p);
+		// calculatetaxandFinalPrice(p);
+
+		double tax = p.getPrice() * 2 / 100;
+		double finalPrice = p.getPrice() + tax;
+		p.setTax(tax);
+		p.setFinalprice(finalPrice);
+		System.out.println(tax + " " + p.getFinalprice());
 		// calling dao layer
 		productDAO.addProduct(p);
 	}
 
-	private void calculatetaxandFinalPrice(Product p) {
-
-		double tax = p.getPrice();
-		double finalPrice = p.getPrice() + tax;
-		p.setTax(tax);
-		p.setFinalprice(finalPrice);
-	}
+//	private static void calculatetaxandFinalPrice(Product p) {
+//
+//	}
 
 }

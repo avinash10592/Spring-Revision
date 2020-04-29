@@ -1,21 +1,28 @@
 package com.practice.dao;
 
-import javax.sql.DataSource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Component;
 
 import com.practice.api.Product;
 
-public abstract class ProductDaoImpl implements ProductDao {
+@Component
+public class ProductDaoImpl implements ProductDao {
 
-	private JdbcTemplate jdbcTemplate;
+	JdbcTemplate jdbcTemplate;
 
-	public ProductDaoImpl(DataSource dataSoruce) {
-		jdbcTemplate = new JdbcTemplate(dataSoruce);
+	public ProductDaoImpl() {
+
+	}
+
+	@Autowired
+	public ProductDaoImpl(DriverManagerDataSource dataSource) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
-	public int registerUser(Product p) {
+	public int addProduct(Product p) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO product_info VALUES(?,?,?,?)";
 

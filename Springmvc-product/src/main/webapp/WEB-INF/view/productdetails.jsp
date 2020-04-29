@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title> </title>
+<title>view the product details</title>
 </head>
 <body>
-Product add successfully
+test jsp view
 </body>
 </html>
