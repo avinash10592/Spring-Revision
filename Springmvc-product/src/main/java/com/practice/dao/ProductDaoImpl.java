@@ -1,7 +1,12 @@
 package com.practice.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
@@ -39,4 +44,25 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	@Override
+	public List<Product> getProducts() {
+		return jdbcTemplate.query("select * from product_info", new RowMapper<Product>() {
+			
+			
+			
+			public Product mapRow(ResultSet rs, int row) throws SQLException {
+				Product product = new Product();
+				
+				product.setPid(rs.getString(1));
+				product.setPname(rs.getString(2));
+				product.setPrice(rs.getDouble(3));
+				product.setFinalprice(rs.getDouble(4));
+				
+
+				return product;
+			}
+
+			
+		});
+	}
 }

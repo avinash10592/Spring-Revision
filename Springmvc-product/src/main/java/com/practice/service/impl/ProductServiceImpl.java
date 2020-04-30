@@ -1,5 +1,7 @@
 package com.practice.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +17,23 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void addProduct(Product p) {
-		// calculatetaxandFinalPrice(p);
-
-		double tax = p.getPrice() * 2 / 100;
-		double finalPrice = p.getPrice() + tax;
-		p.setTax(tax);
-		p.setFinalprice(finalPrice);
-		System.out.println(tax + " " + p.getFinalprice());
+		calculatetaxandFinalPrice(p);
 		// calling dao layer
 		productDAO.addProduct(p);
 	}
 
-//	private static void calculatetaxandFinalPrice(Product p) {
-//
-//	}
+	private static void calculatetaxandFinalPrice(Product p) {
+		double tax = p.getPrice() * 2 / 100;
+		double finalPrice = p.getPrice() + tax;
+		p.setTax(tax);
+		p.setFinalprice(finalPrice);
+		
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		
+	return productDAO.getProducts();
+	}
 
 }
