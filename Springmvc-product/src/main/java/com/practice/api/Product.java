@@ -12,8 +12,8 @@ public class Product {
 		return pid;
 	}
 
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setPid(String string) {
+		this.pid = string;
 	}
 
 	public String getPname() {
@@ -48,7 +48,4 @@ public class Product {
 		this.finalprice = finalprice;
 	}
 
-	
-
 }
-

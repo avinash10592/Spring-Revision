@@ -27,13 +27,31 @@ public class ProductServiceImpl implements ProductService {
 		double finalPrice = p.getPrice() + tax;
 		p.setTax(tax);
 		p.setFinalprice(finalPrice);
-		
+
 	}
 
 	@Override
 	public List<Product> getProducts() {
-		
-	return productDAO.getProducts();
+
+		return productDAO.getProducts();
 	}
+
+	@Override
+	public int editProduct(Product p) {
+		// TODO Auto-generated method stub
+		return productDAO.editProduct(p);
+	}
+
+	@Override
+	public Product getProductById(int pid) {
+		return productDAO.getProductById(pid);
+	}
+
+
+//	@Override
+//	public int saveOrUpdate(Product p) {
+//		return productDAO.saveOrUpdate(p);
+//
+//	}
 
 }

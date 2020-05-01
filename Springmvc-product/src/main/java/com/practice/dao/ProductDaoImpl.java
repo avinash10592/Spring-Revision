@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -47,22 +48,53 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<Product> getProducts() {
 		return jdbcTemplate.query("select * from product_info", new RowMapper<Product>() {
-			
-			
-			
+
 			public Product mapRow(ResultSet rs, int row) throws SQLException {
 				Product product = new Product();
-				
+
 				product.setPid(rs.getString(1));
 				product.setPname(rs.getString(2));
 				product.setPrice(rs.getDouble(3));
 				product.setFinalprice(rs.getDouble(4));
-				
 
 				return product;
 			}
 
-			
 		});
+	}
+
+//	public int saveOrUpdate(Product p) {
+//		if (p.getPid() > 0) {
+//	        // update
+//	        String sql = "UPDATE product SET pname=?, price=?, finalprice=?, "
+//	                   + "WHERE pid=?";
+//	        jdbcTemplate.update(sql, p.getPname(), p.getPrice(),
+//	                p.getFinalprice(), p.getPid());
+//	    } else {
+//	        // insert
+//	        String sql = "INSERT INTO contact (pname, price, finalprice)"
+//	                    + " VALUES (?, ?, ?)";
+//	        jdbcTemplate.update(sql, p.getPname(), p.getPrice(),
+//	                p.getFinalprice());
+//	        return jdbcTemplate.update(sql);
+//	    }
+//		return jdbcTemplate.insert(sql);;
+//	}
+
+	@Override
+	public int editProduct(Product p) {
+		// TODO Auto-generated method stub
+		String sql = "update product_info set pname='" + p.getPname() + "', price=" + p.getPrice() + ",finalprice='"
+				+ p.getFinalprice() + "' where pid=" + p.getPid() + "";
+		return jdbcTemplate.update(sql);
+
+	}
+
+	@Override
+	public Product getProductById(int pid) {
+		String sql = "select * from product_info where pid=?";
+		return jdbcTemplate.queryForObject(sql, new Object[] { pid },
+				new BeanPropertyRowMapper<Product>(Product.class));
+
 	}
 }

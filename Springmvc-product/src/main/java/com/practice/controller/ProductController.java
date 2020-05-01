@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.api.Product;
 import com.practice.service.ProductService;
@@ -38,5 +41,29 @@ public class ProductController {
 		return "productdetails";
 
 	}
+
+	/*
+	 * It displays object data into form for the given id. The @PathVariable puts
+	 * URL data into variable.
+	 */
+	@RequestMapping(value = "/editProduct/{pid}")
+	public String edit(@PathVariable int pid, Model model) {
+		Product product = productService.getProductById(pid);
+		model.addAttribute("command", product);
+		return "editProduct";
+	}
+
+	/* It updates model object. */
+	@RequestMapping(value = "/editProduct", method = RequestMethod.GET)
+	public String editProduct(@ModelAttribute("product") Product p) {
+		productService.editProduct(p);
+		return "redirect:/productdetails";
+	}
+
+//	@RequestMapping(value = "/editProduct", method = RequestMethod.POST)
+//	public ModelAndView saveContact(@ModelAttribute ("product") Product p) {
+//	    productService.saveOrUpdate(p);
+//	    return new ModelAndView("redirect:/");
+//	}
 
 }

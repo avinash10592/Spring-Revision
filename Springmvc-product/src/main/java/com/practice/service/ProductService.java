@@ -10,4 +10,10 @@ public interface ProductService {
 
 	public List<Product> getProducts();
 
+	public int editProduct(Product p);
+
+	public Product getProductById(int pid);
+
+//	public int saveOrUpdate(Product p);
+
 }

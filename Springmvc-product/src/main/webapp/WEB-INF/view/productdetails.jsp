@@ -11,12 +11,15 @@
 <body>
 
 	<h1>Products List</h1>
+	<form:form method="POST" action="/editProduct">
 	<table border="2" width="70%" cellpadding="4">
 		<tr>
 			<th>Product ID</th>
 			<th>Product Name</th>
 			<th>Product price</th>
 			<th>Product Final price</th>
+			<th>Edit</th>
+			<th>Delete</th>
 
 		</tr>
 		<c:forEach var="product" items="${list}">
@@ -25,11 +28,14 @@
 				<td>${product.pname}</td>
 				<td>${product.price}</td>
 				<td>${product.finalprice}</td>
+				<td><a href="/Springmvc-product/editProduct/${product.pid}">Edit</a></td>
+				<td><a href="delete product details/${product.pid}">Delete</a></td>
 
 
 			</tr>
 		</c:forEach>
 	</table>
+	</form:form>
 
 </body>
 </html>
