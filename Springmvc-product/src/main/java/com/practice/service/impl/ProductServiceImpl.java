@@ -47,6 +47,12 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getProductById(pid);
 	}
 
+	@Override
+	public int deleteProduct(int pid) {
+		return productDAO.deleteProduct(pid);
+		
+	}
+
 
 //	@Override
 //	public int saveOrUpdate(Product p) {

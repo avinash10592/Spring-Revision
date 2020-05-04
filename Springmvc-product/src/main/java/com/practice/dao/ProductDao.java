@@ -14,6 +14,8 @@ public interface ProductDao {
 
 	public Product getProductById(int pid);
 
+	public int deleteProduct(int pid);
+
 //	public int saveOrUpdate(Product p);
 
 }

@@ -59,6 +59,12 @@ public class ProductController {
 		productService.editProduct(p);
 		return "redirect:/productdetails";
 	}
+	/* It deletes record for the given id in URL and redirects to /viewemp */    
+    @RequestMapping(value="/deleteProduct/{pid}",method = RequestMethod.GET)    
+    public String deleteProduct(@PathVariable int pid){    
+    	productService.deleteProduct(pid);    
+        return "redirect:/viewemp";    
+    }     
 
 //	@RequestMapping(value = "/editProduct", method = RequestMethod.POST)
 //	public ModelAndView saveContact(@ModelAttribute ("product") Product p) {

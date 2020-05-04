@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<body>
 <h1 align="center">Welcome to the store!!</h1>
 <hr>
 <br />
@@ -16,4 +17,5 @@
 <br />
 <a href="/Springmvc-product/ProductsDetails">Click here to view your
 	product</a>
+</body>
 </html>

@@ -84,7 +84,9 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public int editProduct(Product p) {
 		// TODO Auto-generated method stub
-		String sql = "update product_info set pname='" + p.getPname() + "', price=" + p.getPrice() + ",finalprice='"
+//		String sql = "update product_info set pname=" + p.getPname() + ", price=" + p.getPrice() + ",finalprice="
+//				+ p.getFinalprice() + " where pid=" + p.getPid() + "";
+		String sql = "update product_info set pname='" + p.getPname() + "', price='" + p.getPrice() + "',finalprice='"
 				+ p.getFinalprice() + "' where pid=" + p.getPid() + "";
 		return jdbcTemplate.update(sql);
 
@@ -96,5 +98,12 @@ public class ProductDaoImpl implements ProductDao {
 		return jdbcTemplate.queryForObject(sql, new Object[] { pid },
 				new BeanPropertyRowMapper<Product>(Product.class));
 
+	}
+
+	@Override
+	public int deleteProduct(int pid) {
+
+		String sql = "delete from product_info where pid=" + pid + "";
+		return jdbcTemplate.update(sql);
 	}
 }
