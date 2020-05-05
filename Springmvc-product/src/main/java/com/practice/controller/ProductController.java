@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.practice.api.Product;
 import com.practice.service.ProductService;
@@ -48,22 +47,22 @@ public class ProductController {
 	 */
 	@RequestMapping(value = "/editProduct/{pid}")
 	public String edit(@PathVariable int pid, Model model) {
-		Product product = productService.getProductById(pid);
-		model.addAttribute("command", product);
+		Product p = productService.getProductById(pid);
+		model.addAttribute("command", p);
 		return "editProduct";
 	}
 
 	/* It updates model object. */
-	@RequestMapping(value = "/editProduct", method = RequestMethod.GET)
+	@RequestMapping(value = "/editProduct", method = RequestMethod.POST)
 	public String editProduct(@ModelAttribute("product") Product p) {
 		productService.editProduct(p);
-		return "redirect:/productdetails";
+		return "redirect:/ProductsDetails";
 	}
-	/* It deletes record for the given id in URL and redirects to /viewemp */    
+	/* It deletes record for the given id in URL and redirects to /Productdetails */    
     @RequestMapping(value="/deleteProduct/{pid}",method = RequestMethod.GET)    
-    public String deleteProduct(@PathVariable int pid){    
+    public String delete(@PathVariable int pid){    
     	productService.deleteProduct(pid);    
-        return "redirect:/viewemp";    
+        return "ProductsDetails";    
     }     
 
 //	@RequestMapping(value = "/editProduct", method = RequestMethod.POST)

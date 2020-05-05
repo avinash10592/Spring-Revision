@@ -2,18 +2,20 @@ package com.practice.api;
 
 public class Product {
 
-	String pid;
+	int pid;
 	String pname;
 	double price;
 	double tax;
 	double finalprice;
 
-	public String getPid() {
+	
+
+	public int getPid() {
 		return pid;
 	}
 
-	public void setPid(String string) {
-		this.pid = string;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	public String getPname() {

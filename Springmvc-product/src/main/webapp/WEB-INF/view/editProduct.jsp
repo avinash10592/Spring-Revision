@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Edit Product Details</h1>
-	<form:form method="GET" action="/Springmvc-product/editProduct">
+	<form:form method="POST" action="/Springmvc-product/editProduct">
 		<table>
 			<tr>
 				<td></td>
@@ -27,12 +27,14 @@
 			<tr>
 				<td>Finalprice :</td>
 				<td><form:input path="finalprice" /></td>
-			
+
 			</tr>
-			
+
 			<tr>
 				<td><input type="submit" value="Edit Save" /></td>
 			</tr>
+
+			   <td><a href="Springmvc-product/deleteProduct/${product.pid}">Delete</a></td>
 		</table>
 	</form:form>
 

@@ -52,7 +52,7 @@ public class ProductDaoImpl implements ProductDao {
 			public Product mapRow(ResultSet rs, int row) throws SQLException {
 				Product product = new Product();
 
-				product.setPid(rs.getString(1));
+				product.setPid(rs.getInt(1));
 				product.setPname(rs.getString(2));
 				product.setPrice(rs.getDouble(3));
 				product.setFinalprice(rs.getDouble(4));
