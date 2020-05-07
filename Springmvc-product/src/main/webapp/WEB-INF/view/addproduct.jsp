@@ -8,12 +8,16 @@
 </head>
 <body>
 	<form method="post" action="result">
-		Pid: <input type="text" name="pid" /><br /> Pname: <input type="text"
-			name="pname" /><br /> price: <input type="text" name="price" /><br />
-		<input type="submit" value="ADDPRODUCT" /><br />
+		Pid: <input type="text" name="pid" /><br /> Pname: <input
+			type="text" name="pname" /><br /> price: <input type="text"
+			name="price" /><br /> <input type="submit" value="ADDPRODUCT" /><br />
 
 
 
 	</form>
+
+	<br />
+	<a href="/Springmvc-product/index.jsp"> <----Go back to home page </a>
+
 </body>
 </html>

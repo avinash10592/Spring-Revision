@@ -34,9 +34,12 @@
 				<td><input type="submit" value="Edit Save" /></td>
 			</tr>
 
-			   <td><a href="Springmvc-product/deleteProduct/${product.pid}">Delete</a></td>
+			<td><a href="Springmvc-product/deleteProduct/${product.pid}">Delete</a></td>
 		</table>
 	</form:form>
+	<br />
+	<a href="/Springmvc-product/index.jsp"> <----Go back to home page </a>
+
 
 </body>
 </html>
