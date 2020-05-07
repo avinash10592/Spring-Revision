@@ -7,15 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">Welcome to the store!!</h1>
-<hr>
-<br />
+	<h1 align="center">Welcome to the store!!</h1>
+	<hr>
+	<br />
 
-<a href="/Springmvc-product/addProduct">Click here to add your
-	product</a>
-<br />
-<br />
-<a href="/Springmvc-product/ProductsDetails">Click here to view your
-	product</a>
+	<a href="/Springmvc-product/addProduct">Click here to add your
+		product</a>
+	<br />
+	<br />
+	<a href="/Springmvc-product/ProductsDetails">Click here to view
+		your product</a>
+
 </body>
 </html>

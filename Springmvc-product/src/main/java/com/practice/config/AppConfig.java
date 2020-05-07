@@ -7,6 +7,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.practice.dao.UserDao;
+import com.practice.dao.UserDaoImpl;
+
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages ="com.practice")
@@ -34,6 +37,10 @@ public class AppConfig {
 
 		return ds;
 
+	}
+	@Bean
+	public UserDao getUserDao() {
+		return new UserDaoImpl(dataSource());
 	}
 
 }

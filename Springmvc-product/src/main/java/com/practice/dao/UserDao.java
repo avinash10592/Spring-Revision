@@ -1,11 +1,10 @@
 package com.practice.dao;
 
-import com.practice.api.Login;
 import com.practice.api.User;
 
 public interface UserDao {
 	
-	void register(User user);
+	public int registerUser(User user);
 
-	User validateUser(Login login);
+	public String loginUser(User user);
 }
